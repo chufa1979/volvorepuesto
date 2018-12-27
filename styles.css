@@ -1,0 +1,1259 @@
+/* ================================================
+   FONT FACE
+   ============================================== */
+
+@import url("fonts/stylesheet.css");
+
+ 
+/* =================================================
+   GENERAL
+   ============================================== */
+body {
+	background-color: #FFF;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'volvo_sans_proregular';
+	font-size: 15px;
+	line-height:normal;
+	color:#272525;
+	}
+	
+html { -webkit-text-size-adjust: 100%;	}	
+img { border: 0px; }
+a {	text-decoration: none;}
+strong { font-weight: 700; }
+.tachado {
+	text-decoration:line-through;
+	margin:0px;
+	font-family: 'volvo_sans_promedium';
+	color:#666;
+	}
+.notachado { margin:5px 0px 0px 0px;}
+.rela { position:relative;}
+
+/* MAIN CONTAINER ******************/
+.main {
+	width:970px;
+	padding:0px 15px 0px 15px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+
+/* =================================================
+   ENCABEZADO
+   ============================================== */
+.top {
+	padding:30px 0px 15px 0px;
+	}
+.logo {
+	float:left;
+	}
+.menusup {
+	float:right;
+	}
+.menusup2 {
+	float:right;
+	width:50%;
+	}
+.buscador_content {
+	float:right;
+	padding:0px 8px;
+	border:1px solid #999;
+	width:200px;
+	}
+.buscador_content2 {
+	float:right;
+	padding:0px 8px;
+	border:1px solid #999;
+	width:200px;
+	margin-bottom:15px;
+	}
+.campo {
+	width:100%;
+	font-family: 'volvo_sans_proregular';
+	font-size: 15px;
+	color:#272525;
+	border:none;
+	}
+.menutop {
+	float:right;
+	padding-top:15px;
+	color:#58595B;
+	}
+.menutop2 {
+	float:right;
+	}
+.cart {
+	float:right;
+	display:block;
+	padding:8px 0px 0px 65px;
+	height:22px;
+	color:#58595B;
+	background-image: url(img/cart.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	}
+.cart2 {
+	float:left;
+	display:block;
+	padding:4px 0px 0px 50px;
+	height:21px;
+	color:#58595B;
+	background-image: url(img/cart.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: auto 25px; 
+	}
+.login {
+	padding:8px 50px 0px 0px;
+	height:22px;
+	float:right;
+	}
+.login a { color:#58595B; }
+.login2 { float:left; padding-left:10px; }
+
+/* =================================================
+   MENU PPAL
+   ============================================== */
+#menu_back {
+	background-color:#C4C6C8;
+	overflow:auto;
+	}
+.menu_titulos,
+.menu,
+.menu2 {
+	float:left;
+	display:block;
+	font-size:13px;
+	color:#58595B;
+	padding:15px 22px 15px 0px;
+	font-family: 'volvo_sans_promedium';
+	}
+.menu {
+	color:#FFF;
+	background-image: url(img/flecha_down.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	margin-right:30px;
+	}
+.menu2 {
+	color:#58595B;
+	padding:15px 22px 15px 22px;
+	}
+.menu_linea {
+	border-right:1px solid #999;
+	}
+
+/* Submenu **********************/
+#vacia { position:relative; left:0px; top:0px; }
+.submenu {
+	position:absolute;
+	visibility:hidden;
+	top:0px;
+	left:0px;
+	width:970px;
+	padding:15px 0px;
+	background-color:#fff;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+	z-index:9999;
+	}
+.submenu .columna {
+	width:107px;
+	border-left:1px solid #C4C6C8;
+	float:left;
+	padding:0px 15px;
+	}
+.submenu .columna .categoria {
+	font-family: 'volvo_broad_proregular';
+	font-size:25px;
+	color:#58595B;
+	display:block;
+	padding:0px;
+	}
+.submenu .columna a {
+	color:#58595B;
+	display:block;
+	padding:5px 0px;
+	}
+.submenu .columna .categoria:hover,
+.submenu .columna a:hover {
+	color:#06ACD1;
+	}
+	
+/* Menu resposive *************/
+#menu_responsive {
+	width: 100%;
+	}
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 1;
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	}
+#cssmenu {
+	width: 100%;
+	font-family: 'volvo_sans_proregular';
+	color: #58595B;
+	}
+#cssmenu ul ul {
+	display: none;
+	}
+#cssmenu > ul > li.active > ul {
+	display: block;
+	}
+#cssmenu > ul > li > a {
+	padding: 16px 45px;
+	cursor: pointer;
+	z-index: 2;
+	font-size: 16px;
+	text-decoration: none;
+	color: #58595B;
+	background: #C4C6C8;
+	-webkit-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+	}
+#cssmenu > ul > li > a:hover {
+	color: #58595B;
+	}
+#cssmenu ul > li.has-sub > a:after {
+	position: absolute;
+	right: 26px;
+	top: 19px;
+	z-index: 5;
+	display: block;
+	height: 10px;
+	width: 2px;
+	background: #C4C6C8;
+	content: "";
+	-webkit-transition: all 0.1s ease-out;
+ 	-moz-transition: all 0.1s ease-out;
+	-ms-transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	transition: all 0.1s ease-out;
+	}
+#cssmenu ul > li.has-sub > a:before {
+ 	position: absolute;
+	right: 22px;
+	top: 23px;
+	display: block;
+	width: 10px;
+	height: 2px;
+	background: #C4C6C8;
+	content: "";
+	-webkit-transition: all 0.1s ease-out;
+	-moz-transition: all 0.1s ease-out;
+	-ms-transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	transition: all 0.1s ease-out;
+	}
+#cssmenu ul > li.has-sub.open > a:after,
+#cssmenu ul > li.has-sub.open > a:before {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	}
+#cssmenu ul ul li a {
+	font-family: 'volvo_sans_promedium';
+	padding: 14px 10px;
+	cursor: pointer;
+	z-index: 2;
+	font-size: 15px;
+	text-decoration: none;
+	color: #58595B;
+	background: #fff;
+	-webkit-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+	border-bottom:1px solid #CCC;
+	}
+#cssmenu ul ul ul li a {
+	padding-left: 35px;
+	font-family: 'volvo_broad_proregular';
+	font-size:20px;
+	}
+#cssmenu ul ul ul ul li a {
+	padding-left: 35px;
+	font-family: 'volvo_sans_proregular';
+	font-size:15px;
+	}
+#cssmenu ul ul li a:hover {
+	color: #58595B;
+	}
+#cssmenu ul ul > li.has-sub > a:after {
+	top: 16px;
+	right: 26px;
+	background:#999;
+	}
+#cssmenu ul ul > li.has-sub > a:before {
+	top: 20px;
+	background:#999;
+	}
+
+.nav_inicio {
+	background-image: url(img/icon_menu.png) !important;
+	background-repeat: no-repeat !important;
+	background-position: 10px center !important;
+	}
+	
+
+/* =================================================
+   SECCIONES
+   ============================================== */
+.banner_top {
+	background-color:#42413D;
+	color:#FFF;
+	padding:45px 50px 45px 50px;
+	}
+.sections_busca,	
+.sections1,
+.sections2,
+.sections3,
+.sections4,
+.sections_relac,
+.sections_login {
+	padding:45px 30px 45px 30px;
+	}
+.sections_busca { background-color:#FFFFFF; color:#000; border:1px solid #ccc; margin:20px 0px; }	
+.sections1 { background-color:#CCCCCC;}
+.sections2 { background-color:#80807E; color:#FFF; }
+.sections3 { background-color:#E4E4E4;}
+.sections4 { background-color:#42413D;	color:#FFF;}
+.sections_relac { background-color:#80807E; color:#FFF; overflow:auto; }
+.sections_login { background-color:#42413D;	color:#FFF; overflow:auto;}
+.sections_login a {	color:#FFF;	text-decoration: underline; }
+
+.categorias, .categorias_bco {
+	font-family: 'volvo_broad_proregular';
+	font-size:48px;
+	padding-bottom:20px;
+	}
+.titulo_busca {
+	font-family: 'volvo_broad_proregular';
+	font-size:40px;
+	padding-bottom:20px;
+	}
+
+.producto_titulo {
+	font-family: 'volvo_sans_promedium';
+	font-size:16px;
+	display: block;
+	padding:5px 0px 0px 0px;
+	}
+.producto_precio_cam {
+	font-family: 'volvo_sans_prolight';
+	display: block;
+	padding:10px 0px 0px 0px;
+	color:#059FBF;
+	font-size:16px;
+	}
+.producto_precio {
+	font-family: 'volvo_sans_prolight';
+	display: block;
+	padding:10px 0px 0px 0px;
+	color:#7CDEF3;
+	font-size:16px;
+	}
+.producto_precio_cam .ok,
+.producto_precio .ok {
+	font-family: 'volvo_sans_promedium';
+	}
+	
+.producto_aplica {
+	font-family: 'volvo_sans_prolight';
+	font-size:12px;
+	display: block;
+	padding:5px 0px 0px 0px;
+	color:#666;
+	line-height:normal;
+	}
+.verofertas {
+	display: block;
+	padding:20px;
+	margin:40px 0px 0px 0px;
+	text-align:center;
+	background-color:#06ACD1;
+	color:#fff;
+	font-family: 'volvo_sans_promedium';
+	}
+
+/* =================================================
+   BANNERS
+   ============================================== */
+.banner_top1 {
+	float:left;
+	width:43%;
+	padding-right:2%;
+	}
+.banner_top1 span {
+	font-family: 'volvo_broad_proregular';
+	font-size:72px;
+	}
+.banner_top2 {
+	float:right;
+	width:55%;
+	text-align: right;
+	}
+.banner_down {
+	padding:20px 0px;
+	}
+.banner_down img {
+	width:100%;
+	height:auto;
+	}
+
+/* =================================================
+   FOOT
+   ============================================== */
+.foot_links {
+	background-color:#C5C5BF;
+	padding:27px 70px;
+	}
+
+.foot_links .colum1 {
+	width:35%;
+	float:left;
+	}
+.foot_links .colum2 {
+	width:20%;
+	float:left;
+	}
+.foot_links .colum3 {
+	width:45%;
+	float:left;
+	}
+.foot_links .colum1 a,
+.foot_links .colum2 a,
+.foot_links .colum3 a {
+	color:#272525;
+	display:block;
+	padding:7px 0px;
+	}
+.foot_links .colum1 a span,
+.foot_links .colum2 a span,
+.foot_links .colum3 a span {
+	font-size:11px;
+	} 
+.foot_links .colum1 .seccion,
+.foot_links .colum2 .seccion,
+.foot_links .colum3 .seccion {
+	font-family: 'volvo_broad_proregular';
+	font-size:24px;
+	}
+
+.foot_links .colum1 a,
+.foot_links .colum2 a,
+.foot_links .colum3 a {
+	color:#272525;
+	display:block;
+	padding:7px 0px;
+	}
+
+.nav_whatsapp,
+.nav_atencion {
+	padding-left:25px !important;
+	background-repeat: no-repeat;
+	background-position: left center;
+	}
+.nav_whatsapp {
+	background-image: url(img/icon_whatsapp.png);}
+.nav_atencion {
+	background-image: url(img/icon_phone.png);}
+
+
+.nav_facebook,
+.nav_youtube,
+.nav_twitter,
+.nav_instagram {
+	display:block;
+	padding:7px 0px 7px 25px !important;
+	background-repeat: no-repeat;
+	background-position: left center;
+	}
+.nav_facebook {
+	background-image: url(img/icon_facebook.png);}
+.nav_youtube {
+	background-image: url(img/icon_youtube.png);}
+.nav_twitter {
+	background-image: url(img/icon_twitter.png);}
+.nav_instagram {
+	background-image: url(img/icon_instagram.png);}
+
+.foot {
+	background-color:#272525;
+	padding:10px 0px;
+	font-family: 'volvo_sans_prolight';
+	font-size: 15px;
+	color:#FFF;
+	text-align: center;	
+	}
+.foot a { color:#FFF; }
+
+.foot_logo {
+	padding:30px 0px;
+	text-align: center;	
+	color:#59595B;
+	}
+
+/* ---------------------------------
+   UP / DOWN
+   ------------------------------- */
+.scroll-top {
+	position: fixed;
+	right: 10px;
+	bottom: 0px;
+	height: 30px;
+	width: 30px;
+	background: url(img/top.png) no-repeat center center;
+  }
+
+/* =================================================
+   PRODUCTOS LISTADO
+   ============================================== */
+.ordenar {
+	width:100%;
+	padding-bottom:20px;
+	text-align:right;
+	}
+.ordenar .filtro {
+	font-family: 'volvo_sans_prolight';
+	font-size: 14px;
+	background-color:#FFF;
+	border:none;
+	border-bottom:1px solid #ccc;
+	padding:5px;
+	width:auto;
+	color:#272525;
+	margin:5px 0px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+
+.filtros_resp {
+	background-image: url(img/icon_filter.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding: 2px 0px 2px 25px;
+	margin-bottom:10px;
+	display:none;
+	}
+.filtros_resp a {color:#272525;}
+
+.filtros {
+	float:left;
+	width:20%;
+	margin-right:2%;
+	}
+.filtros .categoria {
+	font-family: 'volvo_sans_promedium';
+	display:block;
+	text-transform: uppercase;
+	}
+.filtros ul,
+.filtros ul li,
+.filtros ul li a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 1;
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color:#272525;
+	}
+.filtros ul li a {
+	font-family: 'volvo_sans_promedium';
+	padding:17px 0px 0px 0px;
+	}
+.filtros ul ul li a {
+	font-family: 'volvo_sans_proregular';
+	padding:17px 0px 0px 20px;
+	background-image: url(img/img_filtro.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	}
+
+.productos_listado {
+	float:left;
+	width:78%;
+	}
+.productos_grilla {
+	float:left;
+	width:30%;
+	margin:0px 3% 20px 0px;
+	border:1px solid #E6E6E6;
+	padding:10px;
+	cursor:pointer;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	}
+.productos_grilla:hover {
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+	}
+.productos_grilla div {
+	width:100%;
+	/*padding-bottom:8px;*/
+	}
+.productos_grilla .foto img {
+	width:100%;
+	height:auto;
+	}
+.productos_grilla .titulo {
+	font-size:16px;
+	height:40px;
+	font-family: 'volvo_sans_promedium';
+	}
+.productos_grilla .aplicacion {
+	font-size:11.5px;
+	line-height: normal;
+	height:40px;
+	color:#999;
+	}
+.productos_grilla .precios {
+	height:60px;
+	font-size:16px;
+	line-height:normal;
+	color:#06ACD1;
+	}
+.productos_grilla .precios span {
+	font-family: 'volvo_sans_promedium';
+	}
+.productos_grilla .pedir {
+	display:block;
+	width:100%;
+	padding:10px;
+	float:left;
+	font-family: 'volvo_sans_promedium';
+	font-size:15px;
+	color:#FFF;
+	background-color:#06ACD1;
+	background-image: none;
+	border:none;
+	cursor:pointer;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+.productos_grilla .sintock {
+	display:block;
+	width:100%;
+	padding:10px;
+	float:left;
+	font-family: 'volvo_sans_promedium';
+	font-size:15px;
+	color:#FFF;
+	background-color:#80807E;
+	text-align:center;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+.productos_grilla .rela {
+	padding:0;
+	}
+.productos_grilla .oferta_banda {
+	width:70px;
+	top:-10px; right:-10px;
+	}
+.productos_grilla .oferta_banda img {
+	border:none !important;
+	height:70px;
+	width:70px;
+	}
+
+
+/* =================================================
+   PRODUCTO DETALLE
+   ============================================== */
+.ruta {
+	width:100%;
+	text-transform: uppercase;
+	font-size:12px;
+	padding:20px 0px 30px 0px;
+	color:#999;
+	}
+.popup {
+	width:100%;
+	font-family: 'volvo_sans_prolight';
+	font-size:14px;
+	padding-bottom:40px;
+	}
+.popup .fotos {
+	float:left;
+	width:50%;
+	}
+.popup .txt {
+	float:left;
+	width:50%;
+	}
+.titulo_producto {
+	 font-family: 'volvo_sans_promedium';
+	 font-size:20px;
+	}
+.popup .producto_precios {
+	font-size:20px;
+	color: #06ACD1;
+	}
+
+.popup .producto_precios span {
+	font-family: 'volvo_sans_promedium';
+	}
+	
+.producto_descripcion {
+	 font-family: 'volvo_sans_promedium';
+	}
+.producto_fotogde {
+	margin-bottom:10px;
+	border: 1px solid #ccc;
+	height:450px;
+	width:450px;
+	}
+.producto_fotogde img {
+	width:100%;
+	height:auto;
+	}
+.producto_zoom {}
+.producto_fotoch {
+	float:left;
+	padding-right:10px;
+	}
+.producto_fotoch img {
+	width:95px;
+	height:95px;
+	border: 1px solid #ccc;
+	}
+.producto_cant {
+	border: 1px solid #ccc;
+	font-family: 'volvo_sans_proregular';
+	font-size: 15px;
+	width:100px;
+	}
+.pedir,
+.sinstock,
+.consultarprod {
+	width:70%;
+	float:left;
+	display:block;
+	font-family: 'volvo_sans_promedium';
+	font-size:15px;
+	color:#FFF;
+	padding:10px 0px 10px 10px;
+	}
+	
+.consultarprod_2 {
+	width:100%;
+	float:left;
+	display:block;
+	font-family: 'volvo_sans_proregular';
+	font-size:14px;
+	color:#FFF;
+	padding:10px 0px 10px 0px;
+	background-color:#CBE5EA;
+	text-align:center;
+	color:#00ADD4;
+	margin-top:10px;
+	}
+		
+.pedir,
+.consultarprod {
+	background-color:#00ADD4;
+	background-image: url(img/flecha_enviar.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	}
+
+.sinstock {
+	background-color:#80807E;
+	}
+.consultarprod {
+	background-color:#CBE5EA;
+	color:#00ADD4;
+	margin-top:25px;
+	}
+.advertencia {
+	width:80%;
+	float:left;
+	display:block;
+	margin:20px 0px 0px 0px;
+	font-size:11px;
+	line-height:15px;
+	}
+.talles { width:100%; overflow:auto; padding-bottom:20px;}
+.talle_listado {
+	height: 18px;
+	width: 50px;
+	text-align: center;
+	padding: 5px 0;
+	border: 2px solid #ccc;
+	cursor: pointer;
+	display: inline;
+	float: left;
+	margin: 0px 8px 8px 0px;
+	opacity: 1;
+	}
+	
+.talle_listado:active {
+	border: 2px solid #00ADD4 !important;
+	}
+.disabled {
+	cursor: default !important;
+	opacity: 0.3;
+	pointer-events: none;
+	}
+.sinstock_banda {
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	}
+.sinstock_banda img {
+	border:none !important;
+	height:100px;
+	width:100px;
+	}
+.oferta_banda {
+	position:absolute;
+	right: 0px;
+	top: 0px;
+	}
+.oferta_banda img {
+	border:none !important;
+	height:70px;
+	width:70px;
+	}
+.prod_relacionados {
+	font-family: 'volvo_broad_proregular';
+	font-size:35px;
+	padding-bottom:20px;
+	}
+.prod_relacionados_thumb {
+	float:left;
+	width:33%;
+	}
+.frase_resaltada {
+	display:block;
+	padding:5px;
+	border:2px solid #06ACD1;
+	}
+
+/* ZOOM */
+.zoom {
+	display:inline-block;
+	position: relative;
+	z-index:999;
+	}
+.zoom:after {
+	content:'';
+	display:block;
+	width:50px;
+	height:50px;
+	position:absolute;
+	bottom:0;
+	right:0;
+	background-image: url(img/icon_zoom.png);
+	}
+.zoom img {
+	display: block;
+	cursor: pointer;
+	}
+.zoom img::selection {
+	background-color: transparent;
+	}
+	
+	
+/* =================================================
+   LOGIN USUARIOS
+   ============================================== */  
+.titulo_seccion {
+	font-family: 'volvo_sans_promedium';
+	text-transform: uppercase;
+	width:94%;
+	padding:0px 3% 20px 3%;
+	}
+.titulo_confirmacion {
+	font-family: 'volvo_broad_proregular';
+	font-size:45px;
+	text-align:center;
+	text-transform: uppercase;
+	padding:5px 15px;
+	background-color:#C5C7C9;
+	color:#fff;
+	}
+.login_columnas {
+	float:left;
+	width:44%;
+	padding:0px 3% 30px 3%;
+	}
+.login_columnas h3,
+.aviso_mail h3 {
+	width:auto;
+	padding:15px;
+	background-color:#C5C7C9;
+	font-family: 'volvo_sans_proregular';
+	font-size: 12px;
+	color:#58595B;
+	margin:0px 0px 20px 0px;
+	}
+
+input, textarea, select, button {
+	font-family: 'volvo_sans_proregular';
+	font-size: 15px;
+	-webkit-appearance: none;
+    -webkit-border-radius: 0;
+	}
+.login_campo {
+	background-color:#FFF;
+	border:none;
+	padding:5px;
+	width:100%;
+	color:#272525;
+	margin:5px 0px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+.enviar {
+	width:100%;
+	padding:10px;
+	float:left;
+	font-family: 'volvo_sans_promedium';
+	font-size:15px;
+	color:#FFF;
+	background-color:#00ADD4;
+	background-image: url(img/flecha_enviar.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	text-align:left;
+	border:none;
+	cursor:pointer;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+
+.aceptacion { font-size:12px; }
+.aviso_mail {
+	width:94%;
+	padding:0px 3% 0px 3%;
+	clear:both;
+	}
+
+input[type="checkbox"] {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	height:25px;
+	margin:0px;
+	cursor:pointer;
+	/*padding:0px 0px 0px 35px;*/
+	padding: 0px 10px 0px 15px;
+	background-image: url(img/checkbox.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	}
+input[type="checkbox"]:checked {
+	background-image: url(img/checkbox.png);
+	background-position: 0px -25px;
+	background-repeat: no-repeat;
+	}
+	
+input[type="radio"] {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	height:25px;
+	margin:0px;
+	cursor:pointer;
+	padding:0px 0px 0px 30px;
+	background-image: url(img/radiobutton.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	}
+input[type="radio"]:checked {
+	background-image: url(img/radiobutton.png);
+	background-position: 0px -25px;
+	background-repeat: no-repeat;
+	}
+
+/* Mapa geolocalizacion ****/
+#map {
+	width:100%;
+	height:400px;
+	color:#333;
+	}
+
+/* Newsletter ***************/
+.news_content {
+	width:100%;
+	margin:20px 0px;
+	clear:both;
+	overflow:auto;
+	}
+.banner_concesionarios {
+	width:49%;
+	margin-left:1%;
+	float:right;
+	}
+.newsletters {
+	padding:30px 30px 30px 30px;
+	background-color:#E4E4E4;
+	width:49%;
+	margin-right:1%;
+	float:left;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+.news_titulo {
+	font-family: 'volvo_broad_proregular';
+	font-size:40px;
+	}
+.news {
+	float:left;
+	display:inline-block;
+	width:100%;
+	margin:5px 0px;
+	}
+.news_campo {
+	font-size:15px;
+	float:left;
+	background-color:#FFF;
+	border:none;
+	padding:10px;
+	width:100%;
+	color:#272525;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+.news_enviar {
+	float:left;
+	display:inline-block;
+	width:100%;
+	margin:5px 0px 15px 0px;
+	}
+.newsletters input[type="checkbox"] {
+	background-image: url(img/checkbox2.png);
+	}
+.newsletters input[type="checkbox"]:checked {
+	background-image: url(img/checkbox2.png);
+	}
+
+
+/* =================================================
+   PEDIDO
+   ============================================== */
+.pedido_content {
+	background-color:#FFF;
+	font-size:13px;
+	color:#272525;
+	padding:20px;
+	display:block;
+	margin:0px 3% 0px 3%;
+	}
+.listado_top {
+	width:100%;
+	padding-bottom:10px;
+	border-bottom:2px solid #00ADD4;
+	margin-bottom:5px;
+	}
+.listado_productos {
+	display:block;
+	padding:7px;
+	margin:10px 0px;
+	background-color:#C5C7C9;
+	}
+.listado_productos img {
+	width:50px;
+	height:50px;
+	border:1px solid #999;
+	}
+.listado_subtotal {
+	display:block;
+	padding:7px;
+	border-bottom:2px solid #666;
+	margin:10px 0px;
+	}
+.listado_total {
+	display:block;
+	padding:7px;
+	margin:10px 0px;
+	font-family: 'volvo_sans_promedium';
+	font-size:15px;
+	overflow:auto;
+	}
+.pedido_div_cant1 {
+	float:left;
+	width:70px;
+	}
+.pedido_div_cant2 {
+	float:left;
+	width:27px;
+	text-align:center;
+	}
+.pedido_div_cant2 img {
+	height:25px; width:25px; border:none;
+	}
+.pedido_cant {
+	background-color:#FFF;
+	border:1px solid #999;
+	padding:3px;
+	width:90%;
+	color:#272525;
+	font-size:13px;
+	text-align:center;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+.pedido_botones1 { width:70%; float:left; } 
+.pedido_botones2 { width:30%; float:left; }
+.bot_seguir,
+.bot_cambiar {
+	width:50%;
+	padding:10px;
+	float:left;
+	font-family: 'volvo_sans_promedium';
+	font-size:15px;
+	color:#FFF;
+	background-color:#999;
+	background-image: url(img/flecha_enviar.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	text-align:left;
+	border:none;
+	cursor:pointer;
+	text-decoration:none !important;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+.bot_seguir { width:50%; }
+.bot_cambiar { width:100%;	}
+
+.subtitulo_seccion {
+	width:94%;
+	padding:0px 3% 20px 3%;
+	clear:both;
+	}
+.mensaje {
+	width:94%;
+	clear:both;
+	font-weight: bold;
+	color: #FFF;
+	background-color: #00ADD4;
+	padding-top: 7px;
+	padding-right: 3%;
+	padding-bottom: 7px;
+	padding-left: 3%;
+	display:none;
+	}	
+.listado_misdatos {
+	width:96%;
+	padding:2%;
+	border:1px solid #666;
+	margin:5px 0px;
+	}
+
+
+/* =================================================
+   Reclamo
+   ============================================== */
+.reclamo_encabezado {
+	background-color:#231F20;
+	font-family: 'volvo_sans_promedium';
+	font-size:16px;
+	color:#FFF;
+	text-align: center;
+	padding:7px;
+	}
+.reclamo_campos {
+	background-color:#FFF;
+	border:1px solid #999;
+	padding:5px;
+	width:100%;
+	color:#272525;
+	margin:5px 0px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	}
+
+/* =================================================
+   Privacidad
+   ============================================== */
+.privacidad {
+	padding:40px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+.privacidad h1 {
+	font-family: 'volvo_broad_proregular';
+	font-size:48px;
+	margin:0;
+	}
+/* ---------------------------------
+   PAGINADO
+   ------------------------------- */
+.paginado {
+width: 30%;
+    padding: 10px 0px 0px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+	}
+.paginado .flechas {
+	float:left;
+	padding:4px 10px 0px 0px;
+	display: block;
+	color: #999999;
+	}
+.paginado .flechas:hover {
+	color: #333;
+	}
+.paginado .num {
+	float:left;
+	font-size: 14px;
+	padding:3px 8px 3px 8px;
+	display: block;
+	color: #999999;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	text-align:center;
+	margin-right:5px;
+	}
+.paginado .num:hover {
+	background-color:#E9E9E9;
+	color: #333;
+	}
+.paginado .num-activo {
+	float:left;
+	font-size: 14px;
+	padding:3px 8px 3px 8px;
+	display: block;
+	color: #FFF;
+	background-color:#999;
+	border: 1px solid #999;
+	border-radius: 3px;
+	text-align:center;
+	margin-right:5px;
+	}
