@@ -44,7 +44,7 @@ while (list($idsd,$infods) = each($_SESSION['productost']))
       <tr>
         <td><div class="logo"><a href="index.php"><img src="img/volvo.png" width="315" height="62" alt="VOLVO TRUCKS &amp; BUSES Argentina" /></a></div>
           <div class="menusup" id="buscad1">
-            <form id="form2" name="form1" method="post" action="">
+            <form id="form2" name="form1" method="get" action="buscar.php">
               <div class="buscador_content">
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>

@@ -1,4 +1,4 @@
-<?php if ((isset($_POST["buscar"])) || (isset($_POST["buscar_x"]))){ ?>
+<?php if ((isset($_POST["buscar_g"])) || (isset($_POST["buscar_g_x"]))){ ?>
 <?php
 	$busca = $_POST['busca'];
 	mysql_select_db($database_cone, $cone);
