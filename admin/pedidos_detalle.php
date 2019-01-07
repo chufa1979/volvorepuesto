@@ -118,6 +118,7 @@ $totalRows_rspro = mysql_num_rows($rspro);
    <li class='has-sub'><a href='#' class="nav_banner">Banners</a>
       <ul>
          <li><a href='banner_superior.php'>Slider Home</a></li>
+         <li><a href='banner_superior_habilitar.php'>Slider Home Habilitar</a></li>
          <li><a href='banner_inferior.php'>Banners inferior</a></li>
       </ul>
    </li>

@@ -119,6 +119,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
    <li class='has-sub'><a href='#' class="nav_banner">Banners</a>
       <ul>
          <li><a href='banner_superior.php'>Slider Home</a></li>
+         <li><a href='banner_superior_habilitar.php'>Slider Home Habilitar</a></li>
          <li><a href='banner_inferior.php'>Banners inferior</a></li>
       </ul>
    </li>

@@ -6,7 +6,7 @@ function autolink($nvar='',$nval='',$page='')
 {
 	global $_REQUEST;
 
-	/* Esta función supermágica devuelve hace links inteligentes en base       */
+	/* Esta funcin supermgica devuelve hace links inteligentes en base       */
 	/* a lo que recibe de $_REQUEST, y lo que recibe en los arrays $n{var|val} */
 
 	reset($_REQUEST);
@@ -208,6 +208,7 @@ if ((isset($_GET["buscar"])) || (isset($_GET["buscar_x"]))){
    <li class='has-sub'><a href='#' class="nav_banner">Banners</a>
       <ul>
          <li><a href='banner_superior.php'>Slider Home</a></li>
+         <li><a href='banner_superior_habilitar.php'>Slider Home Habilitar</a></li>
          <li><a href='banner_inferior.php'>Banners inferior</a></li>
       </ul>
    </li>
