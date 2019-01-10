@@ -578,16 +578,25 @@ strong { font-weight: 700; }
 	box-sizing: border-box;
 	color:#272525;
 	}
+	
 .filtros ul li a {
 	font-family: 'volvo_sans_promedium';
 	padding:17px 0px 0px 0px;
 	}
+
 .filtros ul ul li a {
 	font-family: 'volvo_sans_proregular';
 	padding:17px 0px 0px 20px;
 	background-image: url(img/img_filtro.png);
 	background-repeat: no-repeat;
 	background-position: left top;
+	}
+.titulobusca {
+	font-family: 'volvo_broad_proregular';
+    font-size: 25px;
+    color: #58595B;
+    margin-top: 0px;
+    margin-bottom: 10px;
 	}
 
 .productos_listado {

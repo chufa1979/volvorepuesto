@@ -62,7 +62,7 @@ if ((isset($_POST["botonnov"])) || (isset($_POST["botonnov_x"]))){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<meta name="description" content="Para tener el mejor rendimiento de tu Volvo con la máxima eficiencia y seguridad, elegí siempre repuestos originales. Encontrá los mejores precios para mantener tu camión o bus y aprovechá las promociones que tenemos para vos." />
+<meta name="description" content="Para tener el mejor rendimiento de tu Volvo con la mï¿½xima eficiencia y seguridad, elegï¿½ siempre repuestos originales. Encontrï¿½ los mejores precios para mantener tu camiï¿½n o bus y aprovechï¿½ las promociones que tenemos para vos." />
 <meta name="keywords" content="Sitio Oficial de Volvo Trucks Argentina, Volvo Trucks &amp; Buses, Argentina, Repuestos Originales Volvo, accesorios, camiones, buses" />
 
 <title>VOLVO REPUESTOS</title><link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
@@ -172,6 +172,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- fin BUSCADOR -->
 
 <!--HEADER BANNER-->
+
+<?php
+	mysql_select_db($database_cone, $cone);
+	$query_rs_mn = "SELECT * FROM volvo_slice_habilita WHERE id = '1'";
+	$rs_mn = mysql_query($query_rs_mn, $cone) or die(mysql_error());
+	$row_rs_mn = mysql_fetch_assoc($rs_mn);
+  $totalRows_rs_mn = mysql_num_rows($rs_mn);
+
+  if ($row_rs_mn["habilitado"]==1){
+?>
 <section class="cd-hero">
 		<ul class="cd-hero-slider autoplay">
         <?php $r=1;?>
@@ -212,6 +222,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
         <!-- .cd-slider-nav -->
 	</section>
+                <?php }?>
 <!--FIN HEADER BANNER-->
 
 

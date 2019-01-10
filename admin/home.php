@@ -34,7 +34,7 @@
       <ul>
          <li><a href='productos_alta.php'>Cargar nuevo</a></li>
          <li><a href='productos_publicados.php'>Publicados</a></li>
-         <li><a href='slider_home.php'>Slider Home Promociones</a></li>
+         <!--<li><a href='slider_home.php'>Slider Home Promociones</a></li>-->
       </ul>
    </li>
    <li><a href='pedidos.php' class="nav_pedidos">Pedidos</a></li>

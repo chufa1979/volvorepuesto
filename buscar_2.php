@@ -1,5 +1,6 @@
 <?php 
-error_reporting(-1);
+//error_reporting(E_ALL);
+///ini_set('display_errors', '1');
 require_once('Connections/cone.php');
 	
 	mysql_select_db($database_cone, $cone);
@@ -8,14 +9,11 @@ require_once('Connections/cone.php');
 	$row_rs_b2 = mysql_fetch_assoc($rs_b2);
 	$totalRows_rs_b2 = mysql_num_rows($rs_b2);	
 	
-	
-	mysql_select_db($database_cone, $cone);
+	//mysql_select_db($database_cone, $cone);
 	$query_rs_cate = "SELECT * FROM volvo_categorias ORDER BY categoria ASC";
 	$rs_cate = mysql_query($query_rs_cate, $cone) or die(mysql_error());
 	$row_rs_cate = mysql_fetch_assoc($rs_cate);
 	$totalRows_rs_cate = mysql_num_rows($rs_cate);		
-	
-
 	
 	mysql_select_db($database_cone, $cone);
 	$query_rs_moneda = "SELECT * FROM volvo_moneda WHERE id = 1";
@@ -23,23 +21,17 @@ require_once('Connections/cone.php');
 	$row_rs_moneda = mysql_fetch_assoc($rs_moneda);
 	$totalRows_rs_moneda = mysql_num_rows($rs_moneda);  
 	
-	/********************/
-  if (isset($_GET["busca"])) {
-      $redirecicon = 0;
-      $busca = htmlentities(trim($_GET["busca"]));
-     ///echo $busca;
-  }	
-
-  if (isset($_GET['subcategoria'])) {
-  $subcategoria = $_GET['subcategoria'];
-  $busca_especifico .= " AND prod.subcategoria = ".$subcategoria; 
-  }
-
-	if (isset($_GET['modelo'])) {
-		$modelo = $_GET['modelo'];
-		$busca_especifico .= " AND modelos LIKE '%$modelo%'"; 
+    /********************/
+    if (isset($_GET["busca"])) {
+        $redirecicon = 0;
+        $busca = html_entity_decode(trim($_GET["busca"]));
+       // echo $busca;
+    }	
 		
-	}  
+	if (isset($_GET['subcategoria'])) {
+		$subcategoria = $_GET['subcategoria'];
+		$busca_especifico .= " AND prod.subcategoria = ".$subcategoria; 
+	}
 		
 	if (isset($_GET['orden'])) {
 		if ($_GET['orden']==1) {
@@ -64,13 +56,11 @@ require_once('Connections/cone.php');
 		if ($_GET['orden']==4) {
 			$orden = ' ORDER BY nombre DESC';
 		}						
-  }
-  
-	mysql_select_db($database_cone, $cone);
-	
+	}
+    mysql_select_db($database_cone, $cone);
   $query_rs_pro = "
   SELECT 
-  prod.id AS idproducto, prod.precio_dolar, prod.precio_oferta, prod.destacado, prod.precio_oferta_dolar, prod.imagen01, prod.nombre, prod.modelos, prod.precio, prod.stock, prod.item
+  prod.id AS idproducto, prod.precio_oferta, prod.destacado, prod.precio_oferta_dolar, prod.imagen01, prod.nombre, prod.modelos, prod.precio, prod.stock, prod.item
   FROM volvo_productos AS prod
   LEFT JOIN volvo_familia ON volvo_familia.id= prod.linea
   LEFT JOIN volvo_categorias ON volvo_categorias.id= prod.categoria
@@ -85,9 +75,7 @@ require_once('Connections/cone.php');
     volvo_subcategoria.subcategoria LIKE '%$busca%'
     ) 
   AND prod.habilitado = '1'
-  $busca_especifico
-  $orden
-  ";
+  $busca_especifico";
   $busca_parte = "  (
     prod.nombre LIKE '%$busca%' OR 
     prod.descripcion LIKE '%$busca%' OR 
@@ -97,10 +85,8 @@ require_once('Connections/cone.php');
     volvo_categorias.categoria LIKE '%$busca%' OR
     volvo_subcategoria.subcategoria LIKE '%$busca%'
   )"; 
-	
-///echo $query_rs_pro;
-	
-	$rs_pro = mysql_query($query_rs_pro, $cone) or die(mysql_error());
+  echo $query_rs_pro;
+  $rs_pro = mysql_query($query_rs_pro, $cone) or die(mysql_error());
 	$row_rs_pro = mysql_fetch_assoc($rs_pro);
 	$totalRows_rs_pro = mysql_num_rows($rs_pro);		
 
@@ -117,13 +103,13 @@ require_once('Connections/cone.php');
    $db->execute($query_rs_pro);
    $totalp=ceil($totalRows_rs_pro/$mostrar);
    
-   if (isset($_GET["busca"])) {
-    $pasa .= "busca=".$_GET["busca"];   
-  }
-  if (isset($_GET["subcategoria"])) {
-      $pasa .= '&subcategoria='.$_GET["subcategoria"];   
-  }  
-  $pasa .= '&buscar.x=14&buscar.y=8';
+    if (isset($_GET["busca"])) {
+      $pasa .= "busca=".$_GET["busca"];   
+    }
+    if (isset($_GET["subcategoria"])) {
+        $pasa .= '&subcategoria='.$_GET["subcategoria"];   
+    }  
+    $pasa .= '&buscar.x=14&buscar.y=8';
    	
 	/********************/    									
 ?>
@@ -132,9 +118,9 @@ require_once('Connections/cone.php');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<meta name="description" content="Para tener el mejor rendimiento de tu Volvo con la m�xima eficiencia y seguridad, eleg� siempre repuestos originales. Encontr� los mejores precios para mantener tu cami�n o bus y aprovech� las promociones que tenemos para vos." />
 <title>VOLVO REPUESTOS</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<meta name="description" content="Para tener el mejor rendimiento de tu Volvo con la m�xima eficiencia y seguridad, eleg� siempre repuestos originales. Encontr� los mejores precios para mantener tu cami�n o bus y aprovech� las promociones que tenemos para vos." />
 <link href="styles.css" rel="stylesheet" type="text/css" />
 <link href="styles-media.css" rel="stylesheet" type="text/css" />
 
@@ -166,8 +152,6 @@ require_once('Connections/cone.php');
 	function muestra() {
 		$("#filtros_list").toggle();
 	}
-
-
 	
       $(function() {
         $('a[href*="#"]:not([href="#"])').click(function() {
@@ -195,7 +179,7 @@ require_once('Connections/cone.php');
 	<script type="text/javascript" src="js/source/jquery.fancybox.js?v=2.1.5"></script>
     <link rel="stylesheet" type="text/css" href="js/source/jquery.fancybox.css?v=2.1.5" media="screen" />
     <script type="text/javascript">
-	$(document).ready(function() {
+$(document).ready(function() {
             $('.fancybox').fancybox();
             
             <?php if (isset($_GET['reclamos'])) { ?>
@@ -203,15 +187,15 @@ require_once('Connections/cone.php');
             <?php } ?>
             
         });
-		 function MM_showHideLayers() { //v9.0
-		  var i,p,v,obj,args=MM_showHideLayers.arguments;
-		  for (i=0; i<(args.length-2); i+=3) 
-		  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
-			if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
-			obj.visibility=v; }
-		}
+	 function MM_showHideLayers() { //v9.0
+      var i,p,v,obj,args=MM_showHideLayers.arguments;
+      for (i=0; i<(args.length-2); i+=3) 
+      with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+        if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+        obj.visibility=v; }
+    }
     </script>
-
+    
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -248,7 +232,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- CONTENIDO -->
 
-<div class="ruta">INICIO &gt; BUSCAR &gt; <?php echo $_GET["busca"];?></div>
+<div class="ruta">INICIO &gt; <?php 
+echo "Buscar";
+?> &gt; <?php
+echo $_GET['busca'];
+?> <?php
+if (isset($_GET['subcategoria'])) {
+	$subcategoria = $_GET['subcategoria'];
+	mysql_select_db($database_cone, $cone);
+	$query_rs_catem = "SELECT * FROM volvo_subcategoria WHERE id = '$subcategoria'";
+	$rs_catem = mysql_query($query_rs_catem, $cone) or die(mysql_error());
+	$row_rs_catem = mysql_fetch_assoc($rs_catem);
+	$totalRows_rs_catem = mysql_num_rows($rs_catem);	
+	echo '&gt; '.$row_rs_catem['subcategoria'];	
+}
+?></div>
 <?php if($totalRows_rs_pro<>0) { ?>
 <div class="popup">
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -256,124 +254,107 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <td>
       <div class="filtros_resp" id="filtrar"><a href="#" onclick="muestra()">Filtrar</a></div>
       <div class="filtros" id="filtros_list">
-      <?php
+      <span class="categoria"><?php
+if (isset($_GET['categoria'])) {
+	$vid = $_GET['categoria'];
 	mysql_select_db($database_cone, $cone);
-	$query_rs_catem = "SELECT * FROM volvo_categorias";
+	$query_rs_catem = "SELECT * FROM volvo_categorias WHERE id = '$vid'";
 	$rs_catem = mysql_query($query_rs_catem, $cone) or die(mysql_error());
 	$row_rs_catem = mysql_fetch_assoc($rs_catem);
 	$totalRows_rs_catem = mysql_num_rows($rs_catem);	
-?> 
-
-		<ul>
-        <?php do { ?>
-		<?php
-            $idcate = $row_rs_catem['id'];
-            mysql_select_db($database_cone, $cone);
-            $query_rs_b2 = "SELECT * FROM volvo_subcategoria WHERE categoria = '$idcate' ORDER BY subcategoria ASC";
-            $rs_b2 = mysql_query($query_rs_b2, $cone) or die(mysql_error());
-            $row_rs_b2 = mysql_fetch_assoc($rs_b2);
-            $totalRows_rs_b2 = mysql_num_rows($rs_b2);
-            do {
-        ?> 
-        <?php 
-	//$familia = $row_rs_b2['categoria'];
-	$subcategoria = $row_rs_b2['id'];
+	echo $row_rs_catem['categoria'];
+} else {
+	$subcategoria = $_GET['subcategoria'];
 	mysql_select_db($database_cone, $cone);
-	
-  $buscas = " AND prod.categoria ='$idcate' AND prod.subcategoria = '$subcategoria'";
-    $query_rs_cuenta = "SELECT * 
+	$query_rs_catem = "SELECT * FROM volvo_subcategoria WHERE id = '$subcategoria'";
+	$rs_catem = mysql_query($query_rs_catem, $cone) or die(mysql_error());
+	$row_rs_catem = mysql_fetch_assoc($rs_catem);
+	$totalRows_rs_catem = mysql_num_rows($rs_catem);	
+	$vid =  $row_rs_catem['categoria'];	
+}
+?></span>
+<ul>
+<?php for ($i = 1; $i <=3; $i++) { ?>
+  <?php
+	mysql_select_db($database_cone, $cone);
+	$query_rs_arbol_1 = "SELECT * FROM volvo_categorias ORDER BY categoria ASC";
+	$rs_arbol_1 = mysql_query($query_rs_arbol_1, $cone) or die(mysql_error());
+	$row_rs_arbol_1 = mysql_fetch_assoc($rs_arbol_1);
+  $totalRows_rs_arbol_1 = mysql_num_rows($rs_arbol_1);	
+?>
+<?php
+mysql_select_db($database_cone, $cone);
+$query_rs_arbol_0 = $query_rs_pro." AND prod.linea = '$i'";
+$rs_arbol_0 = mysql_query($query_rs_arbol_0, $cone) or die(mysql_error());
+$row_rs_arbol_0 = mysql_fetch_assoc($rs_arbol_0);
+$totalRows_rs_arbol_0 = mysql_num_rows($rs_arbol_0);
+//echo $query_rs_arbol_0.'<br>';
+//echo $totalRows_rs_arbol_0.'<br>';
+if ($totalRows_rs_arbol_0<>0){
+?>
+<?php
+if ($i==1){
+  echo '<p class="titulobusca">LÍNEA F</p>';
+}
+if ($i==2){
+  echo '<p class="titulobusca">LÍNEA VM</p>';
+}
+if ($i==3){
+  echo '<p class="titulobusca">LÍNEA BUSES</p>';
+}
+?>
+
+<?php do { ?>
+  <?php
+  $familia = $i;
+  $categoria = $row_rs_arbol_1["id"];
+
+  mysql_select_db($database_cone, $cone);
+  $query_rs_arbol_2 = "SELECT * FROM volvo_subcategoria WHERE categoria = '$categoria'";
+  //echo $query_rs_arbol_2.'<br>';
+	$rs_arbol_2 = mysql_query($query_rs_arbol_2, $cone) or die(mysql_error());
+	$row_rs_arbol_2 = mysql_fetch_assoc($rs_arbol_2);
+  $totalRows_rs_arbol_2 = mysql_num_rows($rs_arbol_2);	
+
+  if ($totalRows_rs_arbol_2<>0){
+    
+  do {
+    $subcategoria = $row_rs_arbol_2["id"];
+    $buscas = " AND prod.linea = '$i' AND prod.categoria ='$categoria' AND prod.subcategoria = '$subcategoria'";
+    mysql_select_db($database_cone, $cone);
+    $query_rs_arbol_3 = "SELECT * 
     FROM volvo_productos AS prod
     LEFT JOIN volvo_familia ON volvo_familia.id= prod.linea
     LEFT JOIN volvo_categorias ON volvo_categorias.id= prod.categoria
     LEFT JOIN volvo_subcategoria ON volvo_subcategoria.id= prod.subcategoria
     WHERE $busca_parte AND prod.habilitado = '1' $buscas";
-////echo $query_rs_cuenta."<br>";
-	$rs_cuenta = mysql_query($query_rs_cuenta, $cone) or die(mysql_error());
-	$row_rs_cuenta = mysql_fetch_assoc($rs_cuenta);
-  $totalRows_rs_cuenta = mysql_num_rows($rs_cuenta);
-  	////echo $totalRows_rs_cuenta."<br>";
-  
-	if (($totalRows_rs_cuenta<>0) && ($row_rs_b2['subcategoria']<>'')) {			
-		?>
-        
-			  <li>
-        <a href='buscar.php?busca=<?php echo $_GET["busca"]; ?>&subcategoria=<?php echo $subcategoria; ?>&familia=<?php echo $familia;?>'>
-        <?php echo ucfirst(strtolower($row_rs_b2['subcategoria']));?> (<?php 	  
-			  	echo $totalRows_rs_cuenta;
-			  ?>)
-        </a>
-
-        <?php //// DESPLEGABLE FINAL ?>
-        <?php if ($row_rs_b2['id']==$_GET['subcategoria']) { ?>
-          <ul>
-              <?php 
-              mysql_select_db($database_cone, $cone);
-              $query_rs_cuenta_modelo = "SELECT modelo FROM volvo_modelo ORDER BY modelo ASC";
-              $rs_cuenta_modelo = mysql_query($query_rs_cuenta_modelo, $cone) or die(mysql_error());
-              $row_rs_cuenta_modelo = mysql_fetch_assoc($rs_cuenta_modelo);
-              $totalRows_rs_cuenta_modelo = mysql_num_rows($rs_cuenta_modelo);	
-              
-              do { 
-              $mmodelo = $row_rs_cuenta_modelo['modelo'];		  
-              mysql_select_db($database_cone, $cone);
-
-              $buscas = " AND prod.categoria ='$idcate' AND prod.subcategoria = '$subcategoria' AND modelos LIKE '%$mmodelo%'";
-              $query_rs_cuenta_modelo_2 = "SELECT * 
-              FROM volvo_productos AS prod
-              LEFT JOIN volvo_familia ON volvo_familia.id= prod.linea
-              LEFT JOIN volvo_categorias ON volvo_categorias.id= prod.categoria
-              LEFT JOIN volvo_subcategoria ON volvo_subcategoria.id= prod.subcategoria
-              WHERE $busca_parte AND prod.habilitado = '1' $buscas";
-
-              //$query_rs_cuenta_modelo_2 = "SELECT * FROM volvo_productos WHERE categoria = '$idcate' AND habilitado = '1' AND modelos LIKE '%$mmodelo%' AND subcategoria = '$subcategoria' AND linea = '$familia'";
-              $rs_cuenta_modelo_2 = mysql_query($query_rs_cuenta_modelo_2, $cone) or die(mysql_error());
-              $row_rs_cuenta_modelo_2 = mysql_fetch_assoc($rs_cuenta_modelo_2);
-              $totalRows_rs_cuenta_modelo_2 = mysql_num_rows($rs_cuenta_modelo_2);	
-                  if ($totalRows_rs_cuenta_modelo_2<>0) { ?>
-                  <li><a href='buscar.php?busca=<?php echo $_GET["busca"]; ?>&categoria=<?php echo $idcate; ?>&subcategoria=<?php echo $subcategoria; ?>&familia=<?php echo $familia;?>&modelo=<?php echo $mmodelo;?>'><?php echo $mmodelo;?> (<?php echo $totalRows_rs_cuenta_modelo_2;?>)</a></li>
-                  <?php 
-                  }
-              } while($row_rs_cuenta_modelo = mysql_fetch_assoc($rs_cuenta_modelo));?>
-          </ul>
-        <?php } ?>
-        <?php ///// FIN DESPLEGABLE FINAL ?>
-
-
-	<ul>
-              <?php 
-	mysql_select_db($database_cone, $cone);
-	$query_rs_cuenta_modelo = "SELECT modelo FROM volvo_modelo ORDER BY modelo ASC";
-	$rs_cuenta_modelo = mysql_query($query_rs_cuenta_modelo, $cone) or die(mysql_error());
-	$row_rs_cuenta_modelo = mysql_fetch_assoc($rs_cuenta_modelo);
-	$totalRows_rs_cuenta_modelo = mysql_num_rows($rs_cuenta_modelo);	
-	
-	do { 
-	$mmodelo = $row_rs_cuenta_modelo['modelo'];		  
-
-	mysql_select_db($database_cone, $cone);
-	$query_rs_cuenta_modelo_2 = "SELECT * FROM volvo_productos WHERE habilitado = '1' AND modelos LIKE '%$mmodelo%' AND  subcategoria = '$subcategoria' AND precio_oferta<>'0'";
-	$rs_cuenta_modelo_2 = mysql_query($query_rs_cuenta_modelo_2, $cone) or die(mysql_error());
-	$row_rs_cuenta_modelo_2 = mysql_fetch_assoc($rs_cuenta_modelo_2);
-	$totalRows_rs_cuenta_modelo_2 = mysql_num_rows($rs_cuenta_modelo_2);	
-	if ($totalRows_rs_cuenta_modelo_2<>0) {	
-			  ?>
-                <li><a href='ofertas.php?subcategoria=<?php echo $subcategoria; ?>&familia=<?php echo $familia;?>&modelo=<?php echo $mmodelo;?>'><?php echo $mmodelo;?> (<?php echo $totalRows_rs_cuenta_modelo_2;?>)</a></li>
-    <?php 
-	}
-	} while($row_rs_cuenta_modelo = mysql_fetch_assoc($rs_cuenta_modelo));?>
-    
-	</ul>
-				<?php //} ?>
-              </li>
-     <?php 
-	}
-		} while($row_rs_b2 = mysql_fetch_assoc($rs_b2));
-		?> 
-	<?php } while($row_rs_catem = mysql_fetch_assoc($rs_catem));?>
-		</ul>
+    ///echo "<br>".$query_rs_arbol_3;
+    $rs_arbol_3 = mysql_query($query_rs_arbol_3, $cone) or die(mysql_error());
+    $row_rs_arbol_3 = mysql_fetch_assoc($rs_arbol_3);
+    $totalRows_rs_arbol_3 = mysql_num_rows($rs_arbol_3);	  
+    ?>
+    <?php if ($totalRows_rs_arbol_3<>0) { ?>
+    <?php echo '<li style=>'.$row_rs_arbol_1["categoria"].'</li>';?>
+      <li>
+      <a 
+      class="clase0" 
+      href='buscar.php?subcategoria=<?php echo $subcategoria; ?>&busca=<?php echo $_GET["busca"];?>&buscar.x=23&buscar.y=13'
+      style="padding: 5px 0px 17px 0px;"
+      >
+      <?php echo ucfirst(strtolower($row_rs_arbol_2['subcategoria']));?> (<?php 	  
+                echo $totalRows_rs_arbol_3;
+              ?>) </a>
+      </li>
+    <?php } ?>
+  <?php } while ($row_rs_arbol_2 = mysql_fetch_assoc($rs_arbol_2));?>
+  <?php } ?>
+<?php } while($row_rs_arbol_1 = mysql_fetch_assoc($rs_arbol_1));?>
+<?php } ?>
+<?php } ?>
+</ul>
       </div>
       <div class="productos_listado">
-<div class="ordenar"><form id="formorden" name="formorden" method="get" action="buscar.php">Ordenar por 
+<div class="ordenar"><form id="formorden" name="formorden" method="get" action="categorias.php">Ordenar por 
 	  
   <select name="orden" class="filtro" id="orden" onChange="pasa();">
     <option value="defecto" selected="selected" <?php if (!(strcmp("defecto", $_GET['orden']))) {echo "selected=\"selected\"";} ?>>Por defecto</option>
@@ -382,7 +363,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <option value="3" <?php if (!(strcmp(3, $_GET['orden']))) {echo "selected=\"selected\"";} ?>>A-Z</option>
     <option value="4" <?php if (!(strcmp(4, $_GET['orden']))) {echo "selected=\"selected\"";} ?>>Z-A</option>
     </select>
-    <input name="busca" type="hidden" id="busca" value="<?php echo $_GET['busca']; ?>" />
     <?php if (isset($_GET['familia'])) {	?>
     <input name="familia" type="hidden" id="familia" value="<?php echo $_GET['familia']; ?>" />
     <?php } ?>
@@ -398,7 +378,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <?php while($myrow = mysql_fetch_array($db->sql_result))   { ?>
         <div class="productos_grilla">
-        <div class="rela">
+          <div class="rela">
             <?php if ($row_rs_moneda['moneda']==1) { ?>
             <?php if ($myrow['precio_oferta']<>0) {?>
             		<?php if ($myrow['destacado']==1) {?>
@@ -470,16 +450,14 @@ Precio actual: <span>USD <?php echo $myrow['precio_oferta_dolar'];?></span> + Im
           <input name="button" type="submit" class="pedir" id="button" value="Agregar a mi pedido" />
           </form>
           <?php } else { ?>
-          <a href="consulta_producto.php" class="sintock">Sin stock - Consultar</a>
-          <?php } ?>
           
+          <?php } ?>
+          <a href="consulta_producto.php?producto=<?php echo $myrow['nombre'];?>&item=<?php echo $myrow['item'];?>" class="consultarprod_2">Consultar por este producto</a>
           
           </div>
         <?php } ?>      
-        
-
-        
       </div>
+
 <div class="paginado">
   <?php 
    // CREATE A VAR WITH THE NAV LINKS
@@ -500,7 +478,6 @@ Precio actual: <span>USD <?php echo $myrow['precio_oferta_dolar'];?></span> + Im
   </table>
 </div>
 <?php } ?>
-
 <!-- fin CONTENIDO -->
 
 <!-- BANNER DOWN -->
@@ -508,8 +485,9 @@ Precio actual: <span>USD <?php echo $myrow['precio_oferta_dolar'];?></span> + Im
 <!-- fin BANNER DOWN -->
 
 <!-- FOOTER -->
-<?php include("included/footer_legales.php"); ?>
+<?php include("included/footer.php"); ?>
 <!-- FOOTER -->
+
 </div>
 
 <div class="scroll-top"><a href="#arriba"><img src="img/top.png" width="30" height="30" alt="Subir" /></a></div>

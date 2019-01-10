@@ -49,7 +49,7 @@ while (list($idsd,$infods) = each($_SESSION['productost']))
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
                     <td align="left"><label for="busca2"></label>
-                      <input name="busca" type="text" class="campo" id="busca" placeholder="Buscar" onclick="return valida(this.form)"/></td>
+                      <input name="busca" type="text" class="campo" id="busca" placeholder="Buscar" required  /></td>
                     <td align="right"><input name="buscar" type="image" id="buscar" src="img/buscar.png" alt="BUSCAR" /></td>
                   </tr>
                 </table>
